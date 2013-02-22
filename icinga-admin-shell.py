@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # coding: utf-8
 
+# Copyright (C) 2013  Lorenzo Dalrio <beelzetron@gmail.com>
+
 import cmd
 import socket
 import prettytable
