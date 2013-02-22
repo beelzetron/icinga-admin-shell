@@ -9,7 +9,7 @@ import prettytable
 import logging
 from pynag import Model
 
-_logfile = 'icinga-admin-shell.log'
+LOGFILE = 'icinga-admin-shell.log'
 Model.cfg_file = '/etc/icinga/icinga.cfg'
 
 
@@ -23,7 +23,9 @@ class IcingaAdminShell(cmd.Cmd):
         self.show_args = ['hostgroups', 'hosts', 'servicegroups', 'services']
         self.add_args = ['hostgroup', 'host', 'servicegroup', 'service']
         self._all_hosts = Model.Host.objects.all
-        logging.basicConfig(filename=_logfile, format='[%(asctime)s] %(levelname)s %(message)s', level=logging.DEBUG)
+        logging.basicConfig(filename=LOGFILE,
+                            format='[%(asctime)s] %(levelname)s %(message)s',
+                            level=logging.DEBUG)
         logging.info("Starting UP...")
 
     def emptyline(self):
