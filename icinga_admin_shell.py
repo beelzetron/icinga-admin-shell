@@ -122,7 +122,7 @@ class IcingaAdminShell(cmd.Cmd):
             _host.address = address
             _host.alias = hostname
             _host.set_filename('/etc/icinga/cup2000/%s/%s.cfg' % (env, hostname))
-            if raw_input('Write changes to file(s)? [yes/no]') == 'yes':
+            if raw_input('Write changes to file(s)? [yes/no]: ') == 'yes':
                 _host.save()
                 logging.info('Created host: %s, address: %s' % (hostname, address))
             else:
