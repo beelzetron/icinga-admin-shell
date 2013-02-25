@@ -4,6 +4,7 @@
 # Copyright (C) 2013  Lorenzo Dalrio <beelzetron@gmail.com>
 
 import cmd
+import shlex
 import socket
 import prettytable
 import logging
@@ -128,7 +129,7 @@ class IcingaAdminShell(cmd.Cmd):
                 print _host
         else:
             print "Unknown argument: %s" % line
-            self.help_add()
+            self.help_create()
 
     def complete_show(self, text, line, begidx, endidx):
         if not text:
@@ -174,7 +175,7 @@ class IcingaAdminShell(cmd.Cmd):
         print """showservice: shows service details\nUsage: showservice <service name>"""
 
     def help_create(self):
-        print """add: adds new objects\nUsage: add [host, hostgroup, service, servicegroup]"""
+        print """create: creates new objects\nUsage: create [host, hostgroup, service, servicegroup]"""
 
     def do_EOF(self, line):
         logging.shutdown()
